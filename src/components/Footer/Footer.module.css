@@ -1,0 +1,14 @@
+.footer{
+    display: flex;
+        padding: 15px;
+        min-height: 64px;
+        align-items: center;
+        justify-content: center;
+        border-top: solid 2px #f3848c;
+}
+
+.footer>div{
+    align-items: center;
+        display: flex;
+        gap: 10px;
+}

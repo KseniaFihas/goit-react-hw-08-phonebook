@@ -1,52 +1,34 @@
+import { useSelector } from 'react-redux';
+import { getFilterValue } from 'redux/contacts/filterSlice';
+import { getContacts } from 'redux/contacts/selectors';
+
 import css from './ContactList.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import {
-  selectError,
-  selectFilteredContacts,
-  selectIsLoading,
-} from 'redux/selectors';
-import { fetchContacts, deleteContact } from 'redux/operations';
+import { ContactListItems } from './ContactListItems';
 
-export const ContactList = () => {
-  const filteredContacts = useSelector(selectFilteredContacts);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  const dispatch = useDispatch();
+const ContactList = () => {
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilterValue);
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  const onDeleteContact = id => {
-    dispatch(deleteContact(id));
+  const findContact = () => {
+    const normalizeFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizeFilter)
+    );
   };
-
   return (
-    <>
-      {isLoading && <div className={css.spinner}></div>}
-      {!filteredContacts?.length && !error && !isLoading && (
-        <p className={css.contactName}>No contacts found.</p>
-      )}
-
-      {error && <p className={css.contactName}>{error}</p>}
-
-      <ul className={css.list}>
-        {filteredContacts.map(({ id, name, phone }) => (
-          <li className={css.item} key={id}>
-            <p className={css.contactName}>
-              {name}: {phone}
-            </p>
-            <button
-              className={css.button}
-              type="button"
-              onClick={() => onDeleteContact(id)}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
-    </>
+    <li className={css.list}>
+      {findContact().map(({ id, name, number }) => {
+        return (
+          <ContactListItems
+            key={id}
+            name={name}
+            number={number}
+            contactId={id}
+          />
+        );
+      })}
+    </li>
   );
 };
+
+export default ContactList;

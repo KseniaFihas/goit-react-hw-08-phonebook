@@ -1,3 +1,31 @@
 .input {
-  margin-top: 10px;
+  height: 30px;
+    margin-bottom: 20px;
+    padding: 2px 20px;
+    width: 100px;
+  
+    border: solid 2px #f3848c;
+    border-radius: 6px;
+    background-color: inherit;
+  
+    outline: none;
+  
+    font-size: 15px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    color: #f3848c;
+}
+    .input:hover,
+    .input:focus {
+      border: solid 2px #3c322d;
+    }
+  
+
+
+.title{
+    margin-bottom: 30px;
+    
+      font-family: 'Roboto';
+      font-weight: 500;
+      font-size: 20px;
 }
