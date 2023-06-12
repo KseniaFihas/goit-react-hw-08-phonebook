@@ -42,15 +42,13 @@
 background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image: url('/src/img/bg.webp');
+  background-image: url('/src/img/home_img.jpg');
 }
 
 .main{
 min-height: calc(100vh - 64px);
   padding: 50px;
-
-  @media screen and (min-width: 750px) {
     display: flex;
     justify-content: center;
-  }
+  
 }

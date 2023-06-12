@@ -17,6 +17,7 @@ export const ContactListItems = ({ contactId, name, number }) => {
   };
 
   return (
+    <ul>
       <li className={css.list}>
       <p>
         {name}: {number}
@@ -24,7 +25,8 @@ export const ContactListItems = ({ contactId, name, number }) => {
       <button className={css.button} type="button" onClick={() => deleteContact()}>
         Delete
       </button>
-    </li>
+      </li>
+      </ul>
   );
 };
 

@@ -8,7 +8,7 @@ const Navigation = () => {
   return (
     <nav>
       <NavLink className={css.link} to="/" >PhoneBook </NavLink>
-      {isLoggedIn && <link className={css.link} to="/contacts">Contacts</link>}
+      {isLoggedIn && <NavLink className={css.link} to="/contacts">Contacts</NavLink>}
     </nav>
   );
 };

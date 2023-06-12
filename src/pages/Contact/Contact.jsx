@@ -61,7 +61,6 @@ import {
   ContactForm,
   ContactList,
   Filter,
-  Footer,
   Loader,
   Section,
 } from '../../components';
@@ -90,7 +89,6 @@ const Contacts = () => {
           <ContactList />
         </Section>
       </div>
-      <Footer />
     </div>
   );
 };

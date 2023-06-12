@@ -16,6 +16,7 @@ const ContactList = () => {
     );
   };
   return (
+    <ul>
     <li className={css.list}>
       {findContact().map(({ id, name, number }) => {
         return (
@@ -27,7 +28,8 @@ const ContactList = () => {
           />
         );
       })}
-    </li>
+      </li>
+      </ul>
   );
 };
 
