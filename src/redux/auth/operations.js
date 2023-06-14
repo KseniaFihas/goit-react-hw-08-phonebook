@@ -108,22 +108,37 @@ export const logOut = createAsyncThunk('auth/logout', async (_, { rejectWithValu
   }
 });
 
-export const refreshUser = createAsyncThunk(
-  'auth/refresh',
-  async (_, { rejectWithValue }) => {
-    const state = rejectWithValue.getState();
-    const persistedToken = state.auth.token;
+// export const refreshUser = createAsyncThunk(
+//   'auth/refresh',
+//   async (_, { rejectWithValue }) => {
+//     const state = rejectWithValue.getState();
+//     const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
-      return rejectWithValue('Unable to fetch user');
-    }
+//     if (persistedToken === null) {
+//       return rejectWithValue('Unable to fetch user');
+//     }
+
+//     try {
+//       setAuthHeader(persistedToken);
+//       const res = await axios.get('/users/current');
+//       return res.data;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+export const refreshUser = createAsyncThunk(
+  'auth/refreshUser',
+  async (_, { getState, rejectWithValue }) => {
+    const { token } = getState().auth;
+    token && setAuthHeader(token);
 
     try {
-      setAuthHeader(persistedToken);
-      const res = await axios.get('/users/current');
-      return res.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+      const response = await axios.get('/users/current');
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
     }
   }
 );
