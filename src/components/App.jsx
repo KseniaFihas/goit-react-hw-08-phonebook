@@ -1,7 +1,7 @@
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { refreshUser } from 'redux/authorization/operations';
+import { refreshUser } from 'redux/auth/operations';
 
 import Layout from '../components/Layout/Layout';
 import { useAuth } from '../hooks/useAuth';

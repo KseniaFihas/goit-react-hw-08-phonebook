@@ -4,7 +4,7 @@ import css from '../LoginForm/LoginForm.module.css'
   
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/authorization/operations';
+import { register } from 'redux/auth/operations';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();

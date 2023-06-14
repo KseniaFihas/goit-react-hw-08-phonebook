@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/authorization/operations';
+import { logIn } from 'redux/auth/operations';
 
 import css from './LoginForm.module.css';
 

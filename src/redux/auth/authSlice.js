@@ -4,6 +4,7 @@
 // import { logIn,logOut,refreshUser,register } from './operations';
 
 
+// // це для того щоб виводити помилки в тостах
 // const handlePending = state => {
 //   state.isLoading = true;
 //   state.error = null;
@@ -20,7 +21,7 @@
 //   );
 // };
 
-// const authSlice = createSlice({
+// const authSlise = createSlice({
 //   name: 'auth',
 //   initialState: {
 //     user: { email: null, password: null },
@@ -33,15 +34,16 @@
 //   extraReducers: builder => {
 //     builder
 //       .addCase(register.pending, handlePending)
-//       .addCase(register.fullfield, (state, action) => {
+//       .addCase(register.fulfilled, (state, action) => {
 //         state.token = action.payload.token;
 //         state.user = action.payload.user;
 //         state.isLoaggedIn = true;
 //         state.isLoading = false;
 //       })
 //       .addCase(register.rejected, handleRejected)
+
 //       .addCase(logIn.pending, handlePending)
-//       .addCase(logIn.fullfield, (state, action) => {
+//       .addCase(logIn.fulfilled, (state, action) => {
 //         state.token = action.payload.token;
 //         state.user = action.payload.user;
 //         state.isLoaggedIn = true;
@@ -50,7 +52,7 @@
 //       .addCase(logIn.rejected, handleRejected)
 
 //       .addCase(logOut.pending, handlePending)
-//       .addCase(logOut.fullfield, state => {
+//       .addCase(logOut.fulfilled, state => {
 //         state.user = { email: null, password: null };
 //         state.token = null;
 //         state.isLoaggedIn = false;
@@ -59,21 +61,22 @@
 //         state.isLoading = false;
 //       })
 //       .addCase(logOut.rejected, handleRejected)
+
 //       .addCase(refreshUser.pending, state => {
 //         state.isRefreshing = true;
 //       })
-//       .addCase(refreshUser.fullfield, (state, action) => {
+//       .addCase(refreshUser.fulfilled, (state, action) => {
 //         state.user = action.payload;
 //         state.isLoaggedIn = true;
 //         state.isRefreshing = false;
 //       })
-//       .addCase(refreshUser.rejected, state => {
+//       .addCase(refreshUser.rejected, (state, action) => {
 //         state.isRefreshing = false;
 //       });
 //   },
 // });
 
-// export const authReducer = authSlice.reducer;
+// export const authReducer = authSlise.reducer;
 
 import { createSlice } from '@reduxjs/toolkit';
 

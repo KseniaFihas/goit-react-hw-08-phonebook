@@ -36,7 +36,7 @@
 
 // export const persistor = persistStore(store);
 
-import { configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   FLUSH,
   PAUSE,
@@ -49,7 +49,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { authReducer } from './authorization/authSlise';
+import { authReducer } from './auth/authSlice';
 import { contactsReducer } from './contacts/contactsSlice';
 import { filterReducer } from './contacts/filterSlice';
 
@@ -64,7 +64,7 @@ const middleware = [
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'user', 'isLoggedIn'],
 };
 
 export const store = configureStore({
